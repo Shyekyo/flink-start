@@ -1,5 +1,7 @@
 package org
 
+import java.util.concurrent.TimeUnit
+
 import org.apache.flink.api.java.utils.ParameterTool
 import org.apache.flink.streaming.api.scala._
 import org.apache.flink.streaming.api.windowing.time.Time
@@ -37,7 +39,7 @@ object stream {
       //flatMap(_.split(",")).
       map((_,1)).
       keyBy(0).
-      timeWindow(Time.seconds(5),Time.seconds(3)).
+      timeWindow(Time.seconds(5),Time.of(2,TimeUnit.SECONDS)).
       reduce((a,b) => (a._1,a._2+b._2)).print()
     env.execute("example")
   }
