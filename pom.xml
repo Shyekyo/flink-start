@@ -9,7 +9,9 @@
     <packaging>pom</packaging>
     <version>1.0</version>
     <modules>
-        <module>stream</module>
+      <module>stream</module>
+      <module>recommandSys</module>
+        <module>web</module>
     </modules>
 
     <name>flink-start</name>
@@ -59,11 +61,11 @@
       <version>${flink.version}</version>
     </dependency>
     <!-- flink kafka-->
-    <dependency>
+   <!-- <dependency>
       <groupId>org.apache.flink</groupId>
       <artifactId>flink-connector-kafka_${scala.binary.version}</artifactId>
       <version>${flink.version}</version>
-    </dependency>
+    </dependency>-->
 
     <!-- Scala Library, provided by Flink as well. -->
     <dependency>
@@ -79,13 +81,12 @@
       <!--<scope>provided</scope>-->
     </dependency>
     <!-- Add connector dependencies here. They must be in the default scope (compile). -->
-    <!-- Example:
-    <dependency>
+   <!-- <dependency>
         <groupId>org.apache.flink</groupId>
         <artifactId>flink-connector-kafka-0.10_${scala.binary.version}</artifactId>
         <version>${flink.version}</version>
-    </dependency>
-    -->
+    </dependency>-->
+
     <dependency>
       <groupId>com.alibaba</groupId>
       <artifactId>fastjson</artifactId>
@@ -104,6 +105,68 @@
       <artifactId>log4j</artifactId>
       <version>1.2.17</version>
       <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.flink</groupId>
+      <artifactId>flink-connector-kafka_2.11</artifactId>
+      <version>${flink.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.apache.flink</groupId>
+      <artifactId>flink-java</artifactId>
+      <version>1.7.2</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.flink</groupId>
+      <artifactId>flink-streaming-java_2.11</artifactId>
+      <version>${flink.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.flink</groupId>
+      <artifactId>flink-clients_2.11</artifactId>
+      <version>${flink.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.hbase</groupId>
+      <artifactId>hbase-client</artifactId>
+      <version>1.2.12</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.hbase</groupId>
+      <artifactId>hbase-server</artifactId>
+      <version>1.2.12</version>
+    </dependency>
+
+    <!-- https://mvnrepository.com/artifact/redis.clients/jedis -->
+    <dependency>
+      <groupId>redis.clients</groupId>
+      <artifactId>jedis</artifactId>
+      <version>3.0.1</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/org.apache.bahir/flink-connector-redis -->
+    <dependency>
+      <groupId>org.apache.flink</groupId>
+      <artifactId>flink-connector-redis_2.10</artifactId>
+      <version>1.1.5</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.apache.flink</groupId>
+      <artifactId>flink-jdbc</artifactId>
+      <version>1.6.1</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+    <dependency>
+      <groupId>mysql</groupId>
+      <artifactId>mysql-connector-java</artifactId>
+      <version>8.0.15</version>
+    </dependency>
+    <dependency>
+      <groupId>org.jetbrains</groupId>
+      <artifactId>annotations</artifactId>
+      <version>RELEASE</version>
+      <scope>compile</scope>
     </dependency>
   </dependencies>
 
@@ -145,7 +208,7 @@
               </filters>
               <transformers>
                 <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-                  <mainClass>com.opensourceteams.module.bigdata.flink.StreamingJob</mainClass>
+                  <mainClass> </mainClass>
                 </transformer>
               </transformers>
             </configuration>
