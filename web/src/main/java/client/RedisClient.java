@@ -3,9 +3,15 @@ package client;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Component;
+import streamjava.filterPre;
 
+import java.lang.reflect.MalformedParameterizedTypeException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 /**
  * Created by zhangxiaofan on 2019/9/9.
@@ -53,5 +59,28 @@ public class RedisClient {
      */
     public String getMeter(){
         return getData("meter");
+    }
+
+    public static void main(String[] args) {
+        Map<String,Integer> strs = new HashMap<String,Integer>() {{
+            put("a",1);
+            put("b",2);
+            put("c",3);
+        }};
+        /* strs.forEach((k,v) -> {
+            System.out.println(k + " : "+ v);
+        });
+        stream()
+        .filter(b -> b.getColor() == RED)
+         .sorted((x,y) -> x.getWeight() - y.getWeight())
+         .mapToInt(Widget::getWeight)
+         .sum();*/
+        List<String> list = new ArrayList<String>(){{
+            add("a");
+            add("b");
+            add("c");
+        }};
+        List<String> collect = list.stream().filter(new filterPre()).collect(Collectors.toList());
+        collect.forEach(a -> System.out.println(a));
     }
 }

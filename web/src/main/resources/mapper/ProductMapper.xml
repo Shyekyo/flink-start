@@ -3,7 +3,7 @@
 <mapper namespace="com.demo.dao.ProductDao">
 
 
-    <select id="selectByIds" resultType="com.demo.domain.ProductEntity">
+    <select id="selectByIds" resultType="domain.ProductEntity">
         select * from product
         WHERE product_id IN
         <foreach collection="ids" index="index" item="item"
@@ -11,7 +11,7 @@
             #{item}
         </foreach>
     </select>
-    <select id="selectById" resultType="com.demo.domain.ProductEntity">
+    <select id="selectById" resultType="domain.ProductEntity">
         select * from product
         WHERE product_id = #{id}
     </select>
