@@ -16,7 +16,7 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
         <docker.image.prefix>springboot</docker.image.prefix>
-        <spring.boot>2.0.1.RELEASE</spring.boot>
+        <spring.boot>2.5.12</spring.boot>
     </properties>
 
     <dependencies>
